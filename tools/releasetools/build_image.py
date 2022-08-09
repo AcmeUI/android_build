@@ -347,6 +347,7 @@ def BuildImageMkfs(in_dir, prop_dict, out_file, target_out, fs_config):
       build_command.extend(["-C", prop_dict["erofs_pcluster_size"]])
     if "erofs_share_dup_blocks" in prop_dict:
       build_command.extend(["--chunksize", "4096"])
+    build_command.extend(["-E", "ztailpacking"])
 
     build_command.extend([out_file, in_dir])
     if "erofs_sparse_flag" in prop_dict and not disable_sparse:
